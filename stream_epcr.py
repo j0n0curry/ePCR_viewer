@@ -12,7 +12,12 @@ from urllib.error import URLError
 import math
 pd.set_option('precision', 1)
 
-concordance = pd.read_csv(r'C:\Users\jcurr\OneDrive\Desktop\plotly_dashboard_test\ALT8_concord1.csv')
+url = "https://github.com/j0n0curry/ePCR_viewer/blob/master/ALT8_concord1.csv" # Make sure the url is the raw version of the file on GitHub
+download = requests.get(url).content
+
+# Reading the downloaded content and turning it into a pandas dataframe
+
+concordance = pd.read_csv(io.StringIO(download.decode('utf-8'))
 
 st.set_page_config(layout="wide")
 
