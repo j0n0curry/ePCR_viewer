@@ -11,7 +11,6 @@ import plotly.graph_objects as go
 from urllib.error import URLError
 import math
 import requests
-import io
 pd.set_option('precision', 1)
 
 st.set_page_config(layout="wide")
