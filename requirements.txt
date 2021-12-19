@@ -1,3 +1,6 @@
 plotly
 streamlit
 pandas
+io
+math
+requests
