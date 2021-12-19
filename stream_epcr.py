@@ -10,16 +10,20 @@ import plotly.express as px
 import plotly.graph_objects as go
 from urllib.error import URLError
 import math
+import requests
+import io
 pd.set_option('precision', 1)
 
-url = "https://github.com/j0n0curry/ePCR_viewer/blob/master/ALT8_concord1.csv" # Make sure the url is the raw version of the file on GitHub
+st.set_page_config(layout="wide")
+
+url = "https://raw.githubusercontent.com/j0n0curry/ePCR_viewer/master/ALT8_concord1.csv"
 download = requests.get(url).content
 
 # Reading the downloaded content and turning it into a pandas dataframe
 
-concordance = pd.read_csv(io.StringIO(download.decode('utf-8'))
+concordance = pd.read_csv(url)
 
-st.set_page_config(layout="wide")
+
 
 #percentiles
 def Q25(x):
@@ -242,5 +246,3 @@ st.table(stats_nFAM)
 # this button is not connected to any other logic, it just causes a plain
 # rerun.
 st.button("Re-run")
-
-
